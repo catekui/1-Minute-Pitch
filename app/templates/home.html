@@ -1,9 +1,16 @@
 {% extends "layout.html" %}
     {% block content %}
         {% for quotes in quotes%}
-            <h1>{{quotes.title}}</h1>
-            <p>By {{quotes.author}} on {{quotes.date_posted }}</p> 
-            <p>{{ quotes.content}}</p>
+        <article class="media content-section">
+            <div class="media-body">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ quotes.author }}</a>
+                <small class="text-muted">{{ quotes.date_posted }}</small>
+              </div>
+              <h2><a class="article-title" href="#">{{ quotes.title }}</a></h2>
+              <p class="article-content">{{ quotes.content }}</p>
+            </div>
+          </article>
         {% endfor%}
 {% endblock content%}
 
