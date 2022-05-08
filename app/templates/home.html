@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+    {% block content %}
+        {% for quotes in quotes%}
+            <h1>{{quotes.title}}</h1>
+            <p>By {{quotes.author}} on {{quotes.date_posted }}</p> 
+            <p>{{ quotes.content}}</p>
+        {% endfor%}
+{% endblock content%}
+
