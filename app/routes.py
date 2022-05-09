@@ -1,8 +1,7 @@
 from flask import Flask, render_template, url_for, flash, redirect
+from app.models import *
+from app.forms import RegistrationForm, LoginForm
 from app import app
-from forms import RegistrationForm, LoginForm
-
-app.config['SECRET_KEY'] = 'c2b68daba34ee09a4cdea2f1d76be4e6'
 
 quotes = [
     {
@@ -14,11 +13,10 @@ quotes = [
     {
         'author': 'Ann Wamuya',
         'title': 'Qoute No 2',
-        'content':'Intellectual skills can be cultivated',
+        'content':'No Human is limited',
         'date_posted': 'May 8, 2022'
     }
 ]
-
 @app.route('/')
 @app.route('/home')
 def home ():
@@ -36,7 +34,13 @@ def register ():
         return redirect(url_for('home'))
     return render_template('register.html',title='Register', form=form)
 
-@app.route('/login')
-def login ():
+@app.route("/login", methods=['GET', 'POST'])
+def login():
     form = LoginForm()
-    return render_template('login.html',title='Login', form=form)
+    if form.validate_on_submit():
+        if form.email.data == 'admin@blog.com' and form.password.data == 'password':
+            flash('You have been logged in!', 'success')
+            return redirect(url_for('home'))
+        else:
+            flash('Login Unsuccessful. Please check username and password', 'danger')
+    return render_template('login.html', title='Login', form=form)
