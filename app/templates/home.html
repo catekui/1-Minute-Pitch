@@ -1,16 +1,15 @@
 {% extends "layout.html" %}
-    {% block content %}
-        {% for quotes in quotes%}
+{% block content %}
+    {% for pitches in pitches %}
         <article class="media content-section">
-            <div class="media-body">
-              <div class="article-metadata">
-                <a class="mr-2" href="#">{{ quotes.author }}</a>
-                <small class="text-muted">{{ quotes.date_posted }}</small>
-              </div>
-              <h2><a class="article-title" href="#">{{ quotes.title }}</a></h2>
-              <p class="article-content">{{ quotes.content }}</p>
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ pitches.author }}</a>
+              <small class="text-muted">{{ pitches.date_posted }}</small>
             </div>
-          </article>
-        {% endfor%}
-{% endblock content%}
-
+            <h2><a class="article-title" href="#">{{ pitches.title }}</a></h2>
+            <p class="article-content">{{ pitches.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
