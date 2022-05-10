@@ -1,7 +1,10 @@
 from flask import Flask, render_template, url_for, flash, redirect
-from app.models import *
+from app.models import Qoute
+from app.models import  User
 from app.forms import RegistrationForm, LoginForm
 from app import app
+from app import db
+
 
 quotes = [
     {
@@ -30,8 +33,8 @@ def about ():
 def register ():
     form = RegistrationForm()
     if form.validate_on_submit():
-        flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('home'))
+        flash('Your account has been  created! You are now able to log in ', 'success')
+        return redirect(url_for('login'))
     return render_template('register.html',title='Register', form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
