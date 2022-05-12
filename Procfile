@@ -1,1 +1,1 @@
-web:gunicorn manage:1-Minute-Pitch
+web:gunicorn manage:run
