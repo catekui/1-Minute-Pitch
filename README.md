@@ -25,14 +25,14 @@ In your terminal:
  
 ### Running the Application
 To run the application, in your terminal:
- * $ #!/usr/bin/env python3.6
+ * $ #!/usr/bin/env python3
  * $n cd app
- * $ ./start.sh
+ * $ flask run
 ## live site
  [click here]
 
 ### Technologies Used
-* Python3.6
+* Python3.8
 * flask
 #### License
 MIT License
