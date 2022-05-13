@@ -30,6 +30,7 @@ To run the application, in your terminal:
  * $ flask run
 ## live site
  [click here]
+ https://gentle-island-68873.herokuapp.com/
 
 ### Technologies Used
 * Python3.8
